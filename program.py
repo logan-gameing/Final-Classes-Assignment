@@ -1,9 +1,5 @@
 #Logan
-class DoctorManager():
-    def __init__(self):
-        doctors = []
+# TEST
 
-        #READ DOCDOR
 
-    def format_dr_info():
-        
+# test
