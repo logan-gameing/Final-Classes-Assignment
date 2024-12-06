@@ -103,6 +103,7 @@ class DoctorManager():
                 newDoc.qualifications = input("Enter new Qualification:")
                 newDoc.room_number = input("Enter new Room Number:")
                 i = newDoc
+                self.Write_list_of_doctors_to_file()
                 break
                 #EDIT DOCKTOR
 
@@ -122,7 +123,3 @@ class DoctorManager():
         #create new doctor and add to list
         self.doctors.append(self.enter_dr_info())
         self.Write_list_of_doctors_to_file()
-
-manager = DoctorManager()
-manager.edit_doctor_info()
-manager.read_doctors_file
