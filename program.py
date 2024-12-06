@@ -20,6 +20,7 @@ class DoctorManager():
         with open('doctors.txt','r') as f:
             for line in f:
                 print(line.replace("_", " "))
+                
 
 print("P1")
 a = DoctorManager()
