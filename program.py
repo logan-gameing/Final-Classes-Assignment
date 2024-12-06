@@ -42,14 +42,10 @@ class Doctor():
 class DoctorManager():
     def __init__(self):
         self.doctors = self.read_doctors_file()
-
-
-
-        #READ DOCDOR
         
 
-    def format_dr_info(self):
-        print("EMPY")
+    def format_dr_info(self, doc):
+        return str(doc)
 
     def enter_dr_info(self):
         newDoc = Doctor()
@@ -107,6 +103,7 @@ class DoctorManager():
                 newDoc.qualifications = input("Enter new Qualification:")
                 newDoc.room_number = input("Enter new Room Number:")
                 i = newDoc
+                break
                 #EDIT DOCKTOR
 
         print("Cannot find the doctor...")
@@ -118,10 +115,14 @@ class DoctorManager():
             print(f"{i.id:<6}{i.name:<20}{i.specialization:<16}{i.working_time:<12}{i.qualifications:<20}{i.room_number}\n")
 
     def Write_list_of_doctors_to_file(self):
-        print("TEMP")
+        with open('doctors.txt','w') as f:
+            f.writelines(self.doctors)
 
     def add_dr_to_file(self):
-        print("TEMP")
+        #create new doctor and add to list
+        self.doctors.append(self.enter_dr_info())
+        self.Write_list_of_doctors_to_file()
 
 manager = DoctorManager()
-manager.search_doctor_by_id()
+manager.edit_doctor_info()
+manager.read_doctors_file
