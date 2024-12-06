@@ -5,6 +5,8 @@ class DoctorManager():
     def __init__(self):
         self.doctors = []
 
+        print("P2")
+
         #READ DOCDOR
 
     def format_dr_info():
@@ -14,7 +16,7 @@ class DoctorManager():
         print("EMPY")
 
     def read_doctors_file():
-        print("EMPY")
+        print("P3")
 
         f_obj = open('/doctors.txt', 'r')
 
@@ -25,5 +27,6 @@ class DoctorManager():
             line = f_obj.readline()
             f_obj.close()
 
+print("P1")
 a = DoctorManager()
 a.read_doctors_file
