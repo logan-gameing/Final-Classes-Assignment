@@ -7,24 +7,19 @@ class DoctorManager():
         print("P2")
 
         #READ DOCDOR
+        self.read_doctors_file()
 
-    def format_dr_info():
+    def format_dr_info(self):
         print("EMPY")
 
-    def enter_dr_info():
+    def enter_dr_info(self):
         print("EMPY")
 
-    def read_doctors_file(why):
+    def read_doctors_file(self):
 
-        f_obj = open('doctors.txt', 'r')
-
-        line = f_obj.readline()
-        while line != '':
-            line = line.rstrip()
-            print(line)
-            line = f_obj.readline()
-            f_obj.close()
+        with open('doctors.txt','r') as f:
+            for line in f:
+                print(line.replace("_", " "))
 
 print("P1")
 a = DoctorManager()
-print(a.read_doctors_file())
