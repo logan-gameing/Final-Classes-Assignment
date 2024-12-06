@@ -1,9 +1,9 @@
 #Logan
-print("HI")
+class DoctorManager():
+    def __init__(self):
+        doctors = []
 
+        #READ DOCDOR
 
-
-print("MERGE")
-print("NEW")
-print("LOGAN BRANCH")
-print("Conflict 2")
+    def format_dr_info():
+        
