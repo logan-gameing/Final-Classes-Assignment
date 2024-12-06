@@ -1,5 +1,4 @@
 #Logan
-import os
 
 class DoctorManager():
     def __init__(self):
@@ -15,10 +14,9 @@ class DoctorManager():
     def enter_dr_info():
         print("EMPY")
 
-    def read_doctors_file():
-        print("P3")
+    def read_doctors_file(why):
 
-        f_obj = open('/doctors.txt', 'r')
+        f_obj = open('doctors.txt', 'r')
 
         line = f_obj.readline()
         while line != '':
@@ -29,4 +27,4 @@ class DoctorManager():
 
 print("P1")
 a = DoctorManager()
-a.read_doctors_file
+print(a.read_doctors_file())
