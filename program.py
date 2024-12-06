@@ -1,5 +1,10 @@
 #Logan
-# TEST
+print("HI")
+
+        #READ DOCDOR
 
 
-# test
+print("MERGE")
+print("NEW")
+print("LOGAN BRANCH")
+print("Conflict 2")
