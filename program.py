@@ -3,7 +3,7 @@ import os
 
 class DoctorManager():
     def __init__(self):
-        doctors = []
+        self.doctors = []
 
         #READ DOCDOR
 
