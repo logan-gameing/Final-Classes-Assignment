@@ -79,6 +79,7 @@ class DoctorManager():
             if i.id == docId:
                 self.display_doctor_info(i)
                 break
+        print("Can't find the doctor with the same ID on the system")
 
     def search_doctor_by_name(self):
         docName = input("Enter the doctor name: ")
@@ -86,9 +87,10 @@ class DoctorManager():
             if i.name == docName:
                 self.display_doctor_info(i)
                 break
-
+        print("Can't find the doctor with the same name on the system")
+        
     def display_doctor_info(self, doc):
-        print(f"{"Id":<6}{"Name":<20}{"Speciality":<16}{"Timing":<12}{"Qualification":<20}Room Number\n")
+        print(f"{'Id':<6}{'Name':<20}{'Speciality':<16}{'Timing':<12}{'Qualification':<20}Room Number\n")
         print(f"{doc.id:<6}{doc.name:<20}{doc.specialization:<16}{doc.working_time:<12}{doc.qualifications:<20}{doc.room_number}\n")
 
     def edit_doctor_info(self):
@@ -111,7 +113,7 @@ class DoctorManager():
 
 
     def display_doctors_list(self):
-        print(f"{"Id":<6}{"Name":<20}{"Speciality":<16}{"Timing":<12}{"Qualification":<20}Room Number\n")
+        print(f"{'Id':<6}{'Name':<20}{'Speciality':<16}{'Timing':<12}{'Qualification':<20}Room Number\n")
         for i in self.doctors[1:]:
             print(f"{i.id:<6}{i.name:<20}{i.specialization:<16}{i.working_time:<12}{i.qualifications:<20}{i.room_number}\n")
 
@@ -123,3 +125,6 @@ class DoctorManager():
         #create new doctor and add to list
         self.doctors.append(self.enter_dr_info())
         self.Write_list_of_doctors_to_file()
+
+manager = DoctorManager()
+manager.search_doctor_by_id()
