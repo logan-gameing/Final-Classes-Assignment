@@ -7,7 +7,7 @@ Original file is located at
     https://colab.research.google.com/drive/1ogpa4Jx51bZMjXXZ4pswe1G0sUlK8jLZ
 """
 
-class PatientManager:
+class PatientManager():
   def __init__(self):
     self.patients = []
     self.read_patients_from_file()
@@ -24,13 +24,14 @@ class PatientManager:
     for patient in self.patients:
       self.display_patient_info(patient)
 
-  def search_patient_by_id(self, id: int):
-    p = None
-    for patient in self.patients:
-      if patient.get_id() == id:
-        p = patient
-
-    self.process_patient_data(p, "ID")
+  def search_patient_by_id(self):
+        pid = int(input("Enter the patient Id: "))
+        for i in self.patients:
+          if i.id == pid:
+            self.display_patient_info(i)
+            break
+        else:
+          print('Can\'t find the patient with the same id on the system')
 
   def patient_do_not_exist(self, value: str):
     print(f"Can't find the patient with the same {value} on the system")
@@ -45,7 +46,7 @@ class PatientManager:
     self.patient_do_not_exist(value)
 
   def display_patient_info(self, p: Patient):
-    print(f"{p.id}\t{self.format_output_spacing(p.name)}{self.format_output_spacing(p.disease)}{self.format_output_spacing(p.gender)}{self.format_output_spacing(p.age, True)}")
+    print(f"\n{p.id}\t{self.format_output_spacing(p.name)}{self.format_output_spacing(p.disease)}{self.format_output_spacing(p.gender)}{self.format_output_spacing(p.age, True)}")
 
   def display_patient_headers(self):
     print(f"ID\tName\t\tDisease\t\tGender\t\tAge")
@@ -64,14 +65,14 @@ class PatientManager:
 
   def read_patients_header_line_from_file(self) -> str:
     # Read and modify content in memory
-    with open("/content/sample_data/patients.txt", "r") as file:
+    with open("patients.txt", 'r') as file:
       lines = file.readlines()  # Read all lines into a list
 
     return lines[0] # Return only the header line
 
-  def write_list_to_file(self, lines: List[str]):
+  def write_list_to_file(self, lines):
     # Open a file in write mode. If the file doesn't exist, it will be created.
-    with open("/content/sample_data/patients.txt", "w") as file:
+    with open("patients.txt", 'w') as file:
       # Write content to the file
       file.writelines(lines)
 
@@ -102,14 +103,13 @@ class PatientManager:
 
     self.write_list_of_patients_to_file()
     self.display_add_or_edit_message(p.id, "edited")
-    self.display_patients_list()
 
   def display_add_or_edit_message(self, id: int, added_or_edit_note: str):
     print(f"Patient whose ID is {id} has been {added_or_edit_note}")
 
   def read_patients_from_file(self):
     # replace the content of open method with the path to the doctors.txt file
-    with open("/content/sample_data/patients.txt", "r") as file:
+    with open("patients.txt", 'r') as file:
       next(file) # Skip the first line in the file as this contains the headers (e.g. id, name, etc.)
 
       # Iterate through the remaining lines
